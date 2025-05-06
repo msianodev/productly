@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Nuevo Producto</h1>
+    <form 
+        novalidate    
+        action="{% url 'producto:nuevo' %}" 
+        method="post">
+
+        {% csrf_token %}  {# Evita que se pueda enviar el formulario a otro sitio #}
+        {{ form.as_p }} {# Muestra el formulario #}
+        
+        <button type="submit">Guardar</button>
+    </form>
+{% endblock %}

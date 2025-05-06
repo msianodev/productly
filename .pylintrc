@@ -1,0 +1,7 @@
+load_plugins = [
+    "pylint-django"
+]
+
+django_settings_module = "config.settings"
+
+
