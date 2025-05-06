@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="mb-4">Lista de Productos</h1>
+            <a href="{% url 'producto:nuevo' %}" class="btn btn-primary mb-3">Agregar Nuevo Producto</a>
+            
+            {% if productos %}
+                <div class="row">
+                    {% for producto in productos %}
+                        <div class="col-md-4 mb-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ producto.nombre }}</h5>
+                                    <p class="card-text">
+                                        <strong>Precio:</strong> ${{ producto.precio }}<br>
+                                        <strong>Stock:</strong> {{ producto.stock }}
+                                    </p>
+                                    <a href="{% url 'producto:detalle' producto.id %}" class="btn btn-info">Ver Detalles</a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <div class="alert alert-info">
+                    No hay productos disponibles en este momento.
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
