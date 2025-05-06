@@ -14,9 +14,11 @@ import os
 from pathlib import Path
 from django.forms.renderers import TemplatesSetting
 
+# Configuración de los formularios
 class CustomTemplatesSetting(TemplatesSetting):
     form_template_name = 'form_snippet.html'
 
+# Configuración de los formularios
 FORM_RENDERER = 'productly.settings.CustomTemplatesSetting'
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
